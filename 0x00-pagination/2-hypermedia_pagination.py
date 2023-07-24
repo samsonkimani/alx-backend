@@ -5,7 +5,7 @@ server model
 """
 import csv
 import math
-from typing import List, Tuple, Dict, Optional
+from typing import List, Tuple, Dict, Any
 
 
 class Server:
@@ -50,7 +50,7 @@ class Server:
         return data
 
     def get_hyper(self,
-                  page: int = 1, page_size: int = 10):
+                  page: int = 1, page_size: int = 10) -> Dict[str, Any]:
         """ get full data details"""
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
