@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+"""
+server model
+"""
 import csv
 import math
 from typing import List, Tuple
@@ -32,6 +37,7 @@ class Server:
         return tuple(new_list)
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """ get page contents"""
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
         self.dataset()
