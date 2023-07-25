@@ -18,12 +18,11 @@ class FIFOCache(BaseCaching):
         """ creating a method to add items to the cache_data dict"""
         if key is None or item is None:
             return
-        if len(
-            self.cache_data) >=
-        BaseCaching.MAX_ITEMS and key not in self.cache_data:
-            first_element = next(iter(self.cache_data))
-            self.cache_data.pop(first_element)
-            print("DISCARD: {}".format(first_element))
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+            if key not in self.cache_data:
+                first_element = next(iter(self.cache_data))
+                self.cache_data.pop(first_element)
+                print("DISCARD: {}".format(first_element))
         if key in self.cache_data:
             pass
         else:
