@@ -12,6 +12,7 @@ class MRUCache(BaseCaching):
     """
     implementing the mru caching algorithm
     """
+
     def __init__(self):
         """ initializing the mru class"""
         super().__init__()
@@ -20,7 +21,7 @@ class MRUCache(BaseCaching):
     def put(self, key, item):
         """
         Add data into the cache_data based on the most recently used
-        item 
+        item
         """
         if not key or not item:
             return
