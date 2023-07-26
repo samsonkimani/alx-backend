@@ -1,28 +1,22 @@
 #!/usr/bin/env python3
+
 """
-LIFO Caching algorithm
+lifo  caching
 """
 
-
-BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """
-     lifo caching algorithm
-    """
+    """ lifo caching"""
 
     def __init__(self):
-        """
-        initializing the init method
-        """
+        """ initializing the init method"""
         super().__init__()
         self.key_indexes = []
 
     def put(self, key, item):
-        """
-        Adding items to the cache_data
-        """
+        """ method to add elements into the cache_data"""
         if key and item:
             if len(self.cache_data) >= self.MAX_ITEMS:
                 if key in self.cache_data:
@@ -37,9 +31,7 @@ class LIFOCache(BaseCaching):
             self.key_indexes.append(key)
 
     def get(self, key):
-        """
-        Must return the value in self.cache_data linked to key.
-        """
-        if key in self.cache_data:
-            return self.cache_data[key]
-        return None
+        """ return the dictionary item"""
+        if key is None or key not in self.cache_data:
+            return None
+        return self.cache_data.get(key)
