@@ -29,17 +29,13 @@ def get_locale():
 
     if locale and locale in app.config["LANGUAGES"]:
         return locale
-    else:
-        return request.accept_languages.best_match(app.config["LANGUAGES"])
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
 @app.route("/")
 def home():
     """ an endpoint to the index page"""
-    home_title = _('Welcome to Holberton')
-    home_header = _('Hello world')
-    return render_template(
-            '0-index.html', home_title=home_title, home_header=home_header)
+    return render_template('4-index.html')
 
 
 if __name__ == "__main__":
