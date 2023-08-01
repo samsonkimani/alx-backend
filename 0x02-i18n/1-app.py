@@ -25,3 +25,7 @@ app.config.from_object(Config)
 def home():
     """ an endpoint to the index page"""
     return render_template('0-index.html')
+
+
+if __name__ == "__main__":
+    app.run()
