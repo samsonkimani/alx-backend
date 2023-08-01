@@ -33,7 +33,8 @@ def home():
     """ an endpoint to the index page"""
     home_title = _('Welcome to Holberton')
     home_header = _('Hello world')
-    return render_template('0-index.html', home_title=home_title, home_header=home_header)
+    return render_template(
+            '0-index.html', home_title=home_title, home_header=home_header)
 
 
 if __name__ == "__main__":
