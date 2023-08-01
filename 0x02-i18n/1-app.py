@@ -24,4 +24,4 @@ app.config.from_object(Config)
 @app.route("/")
 def home():
     """ an endpoint to the index page"""
-    return render_template('index.html')
+    return render_template('0-index.html')
