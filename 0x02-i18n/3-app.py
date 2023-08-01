@@ -31,10 +31,7 @@ def get_locale():
 @app.route("/")
 def home():
     """ an endpoint to the index page"""
-    home_title = _('Welcome to Holberton')
-    home_header = _('Hello world')
-    return render_template(
-            '3-index.html', home_title=home_title, home_header=home_header)
+    return render_template('3-index.html')
 
 
 if __name__ == "__main__":
