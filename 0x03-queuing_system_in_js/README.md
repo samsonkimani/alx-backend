@@ -1,1 +1,1 @@
-working with redis and a js queing system
+working with redis and kue in nodejs
