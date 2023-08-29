@@ -1,4 +1,6 @@
 import { createClient } from 'redis';
+import redis from 'redis';
+
 const client = createClient();
 
 client.on('connect', () => {
@@ -12,9 +14,9 @@ client.on('error', (error) => {
 function setNewSchool (schoolName, value) {
   client.set(schoolName, value, (err, response) => {
     if (err) {
-      console.log(err);
+      redis.print(err);
     } else {
-      console.log('Reply:', response);
+      redis.print(`Reply: ${response}`);
     }
   });
 }
@@ -22,9 +24,9 @@ function setNewSchool (schoolName, value) {
 function displaySchoolValue (schoolName) {
   client.get(schoolName, (err, response) => {
     if (err) {
-      console.log(err);
+      redis.print(err);
     } else {
-      console.log(response);
+      redis.print(response);
     }
   });
 }

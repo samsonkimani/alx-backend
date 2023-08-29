@@ -1,5 +1,6 @@
 import { createClient } from 'redis';
 import { promisify } from 'util';
+import redis from 'redis';
 
 const client = createClient();
 
@@ -12,23 +13,23 @@ client.on('error', (error) => {
 });
 
 const promisifiedGet = promisify(client.get).bind(client);
+const promisifySet = promisify(client.set).bind(client);
 
-function setNewSchool (schoolName, value) {
-  client.set(schoolName, value, (err, response) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('Reply:', response);
-    }
-  });
+async function setNewSchool (schoolName, value) {
+	try {
+		const result = await promisifySet(schoolName, value);
+		redis.print(`Reply: ${result}`);
+	} catch (error) {
+		redis.print(error.message);
+	}
 }
 
 async function displaySchoolValue (schoolName) {
   try {
     const result = await promisifiedGet(schoolName);
-    console.log(result);
+    redis.print(result);
   } catch (error) {
-    console.log(error.message);
+    redis.print(error.message);
   }
 }
 
